@@ -40,7 +40,7 @@ export class AltaChoferComponent {
       edad: this.formChofer.value.edad,
       nroLicencia: this.formChofer.value.licencia,
       licenciaProfesional: this.formChofer.value.licenciaProfesional,
-      nacionalidad: JSON.stringify(this.pais),
+      pais: JSON.stringify(this.pais),
     };
 
     this.choferService

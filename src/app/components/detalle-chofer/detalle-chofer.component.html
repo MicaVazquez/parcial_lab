@@ -1,0 +1,8 @@
+<div class="chofer-detalle-container" *ngIf="chofer?.nombre">
+  <h2>{{ chofer?.nombre }}</h2>
+  <p>País: {{ chofer?.pais?.nombre }}</p>
+  <p>DNI: {{ chofer?.dni }}</p>
+  <p>Edad: {{ chofer?.edad }}</p>
+  <p>Nro de Licencia: {{ chofer?.nroLicencia }}</p>
+  <p>Licencia Profesional: {{ chofer?.licenciaProfesional ? "Sí" : "No" }}</p>
+</div>

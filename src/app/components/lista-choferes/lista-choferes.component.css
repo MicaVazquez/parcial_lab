@@ -1,0 +1,7 @@
+:host {
+  display: block;
+  background: linear-gradient(135deg, #77e4c8, #4535c1);
+  color: #2e073f;
+  min-height: 100vh;
+  padding: 20px;
+}

@@ -1,0 +1,21 @@
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th *ngIf="mostrarSeleccionar">Seleccionar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let chofer of choferes">
+        <td>{{ chofer.nombre }}</td>
+
+        <td *ngIf="mostrarSeleccionar">
+          <button (click)="seleccionar(chofer)" class="btn btn-primary">
+            X
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
