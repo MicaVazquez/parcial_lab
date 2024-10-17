@@ -1,0 +1,164 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Tabla de países</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <app-tabla-paises
+            (eventPaisSeleccionado)="cargarPais($event)"
+            [mostrarSeleccionar]="true"
+            [cargarPaises]="true"
+          ></app-tabla-paises>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-4 order-md-1">
+      <h4 class="mb-3">Registro de Chofer</h4>
+      <form class="needs-validation" novalidate [formGroup]="formChofer">
+        <!-- Nombre -->
+        <div class="mb-3">
+          <label for="nombre">Nombre</label>
+          <div
+            *ngIf="formChofer.controls['nombre'].errors?.['required'] && formChofer.controls['nombre'].touched"
+            style="color: red"
+          >
+            Nombre es requerido
+          </div>
+          <div
+            *ngIf="formChofer.controls['nombre'].errors?.['pattern'] && formChofer.controls['nombre'].touched"
+            style="color: red"
+          >
+            Solo se permiten letras
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            formControlName="nombre"
+            name="nombre"
+          />
+        </div>
+
+        <!-- DNI -->
+        <div class="mb-3">
+          <label for="dni">DNI</label>
+          <div
+            *ngIf="formChofer.controls['dni'].errors?.['required'] && formChofer.controls['dni'].touched"
+            style="color: red"
+          >
+            DNI es requerido
+          </div>
+          <div
+            *ngIf="formChofer.controls['dni'].errors?.['minLength'] && formChofer.controls['dni'].touched"
+            style="color: red"
+          >
+            DNI debe tener 8 caracteres
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="DNI"
+            formControlName="dni"
+            name="dni"
+          />
+        </div>
+
+        <!-- Edad -->
+        <div class="mb-3">
+          <label for="edad">Edad</label>
+          <div
+            *ngIf="formChofer.controls['edad'].errors?.['required'] && formChofer.controls['edad'].touched"
+            style="color: red"
+          >
+            Edad es requerida
+          </div>
+          <div
+            *ngIf="formChofer.controls['edad'].errors?.['min'] || formChofer.controls['edad'].errors?.['max']"
+            style="color: red"
+          >
+            Edad debe ser entre 18 y 50 años
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Edad"
+            formControlName="edad"
+            name="edad"
+          />
+        </div>
+
+        <!-- Nro de licencia -->
+        <div class="mb-3">
+          <label for="licencia">Nro de licencia</label>
+          <div
+            *ngIf="formChofer.controls['licencia'].errors?.['required'] && formChofer.controls['licencia'].touched"
+            style="color: red"
+          >
+            Nro de licencia es requerido
+          </div>
+          <div
+            *ngIf="formChofer.controls['licencia'].errors?.['minlength'] && formChofer.controls['licencia'].touched"
+            style="color: red"
+          >
+            Nro de licencia debe tener al menos 7 caracteres
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Nro de licencia"
+            formControlName="licencia"
+            name="licencia"
+          />
+        </div>
+
+        <!-- Licencia profesional -->
+        <div class="mb-3">
+          <label for="licenciaProfesional">Licencia profesional</label>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              formControlName="licenciaProfesional"
+              name="licenciaProfesional"
+            />
+            <label class="form-check-label" for="licenciaProfesional">
+              Sí
+            </label>
+          </div>
+        </div>
+
+        <!-- Nacionalidad -->
+        <div class="mb-3">
+          <label for="pais">Nacionalidad</label>
+          <div
+            *ngIf="formChofer.controls['pais'].errors?.['required'] && formChofer.controls['pais'].touched"
+            style="color: red"
+          >
+            Nacionalidad es requerida
+          </div>
+          <input
+            class="custom-select d-block w-100"
+            id="pais"
+            required
+            readonly
+            formControlName="pais"
+            name="pais"
+          />
+        </div>
+
+        <hr class="mb-4" />
+        <button
+          class="btn btn-primary btn-lg btn-block"
+          type="submit"
+          [disabled]="formChofer.invalid"
+          (click)="registrarChofer()"
+        >
+          Registrar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

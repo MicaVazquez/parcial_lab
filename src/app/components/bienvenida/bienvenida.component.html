@@ -1,0 +1,17 @@
+<div class="container">
+  <div *ngIf="userData" class="welcome-container">
+    <section class="user-info">
+      <header>
+        <h1>Bienvenido a la Página</h1>
+        <h2>{{ userData.name }}</h2>
+      </header>
+      <img [src]="userData.avatar_url" alt="Avatar de GitHub" class="avatar" />
+      <article class="details">
+        <p><strong>Username:</strong> {{ userData.login }}</p>
+        <p><strong>Bio:</strong> {{ userData.bio }}</p>
+        <p><strong>Location:</strong> {{ userData.location }}</p>
+        <p><strong>Public Repos:</strong> {{ userData.public_repos }}</p>
+      </article>
+    </section>
+  </div>
+</div>

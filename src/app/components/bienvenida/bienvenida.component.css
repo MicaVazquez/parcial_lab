@@ -1,0 +1,47 @@
+/* Asegura que el contenedor ocupe todo el alto de la pantalla */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: transparent;
+}
+
+.welcome-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px; /* Tamaño de la card */
+  text-align: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.details {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+p {
+  margin: 5px 0;
+}
+:host {
+  display: block;
+  background: linear-gradient(135deg, #77e4c8, #4535c1);
+  color: #2e073f;
+  min-height: 100vh;
+  padding: 20px;
+}

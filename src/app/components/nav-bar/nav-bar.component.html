@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="logo">
+    <a href="#">Mi Sitio</a>
+  </div>
+  <ul class="nav-links">
+    @if(!userState) {
+    <li><a (click)="redirigir('/login')">Inicio Sesion</a></li>
+    }@else{
+    <li><a (click)="redirigir('/chofer/alta')">Alta chofer</a></li>
+    <li><a (click)="redirigir('/repartidor/lista')">Lista repartidor</a></li>
+    <li><a (click)="redirigir('/pizzas/abm')">Pizzas</a></li>
+    <li><a (click)="logout()">Cerrar Sesion</a></li>
+    }
+  </ul>
+</nav>
